@@ -1,3 +1,21 @@
+- to test natural language to query parameters: 
+```
+go run ./cmd/ --config "path/to/config/file" query"
+```
+
+- to test explaination
+- - to test trace explaination
+    ```
+    go run ./cmd/ --config "path/to/config/file --explaintrace <trace no>
+    ```
+  - to test span explaination
+   ```
+    go run ./cmd/ --config "path/to/config/file --explainspan-trace <trace no> --explainspan <span no>
+    ```
+
+these traces are fetched from traces_bench.json (which are created by the commented out part of the code inside ```internal/synthetic/synthetic_trace_generator.go``` )
+
+
 - Unit conversion is offloaded to go code
 - Should be able to make more than one query if multiple operation name and services are given in the natural language input
 - in dates if end_time is missing we use now by default
